@@ -1,0 +1,5 @@
+-main RunTests
+-cp .
+-lib utest
+--interp
+-w -WDeprecatedEnumAbstract
