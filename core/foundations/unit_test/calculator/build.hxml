@@ -1,0 +1,33 @@
+-main RunTests
+
+# Specify the source directories for your application code and test code
+-cp .
+# -cp src
+# -cp test
+
+# Target platform for running the tests (e.g., Neko, JavaScript)
+# -neko bin/RunTests.n
+
+# Automatically run the compiled Neko file after building
+# -cmd neko bin/RunTests.n
+
+# Or for JavaScript:
+# -js bin/Test.js
+
+# Target platform for running tests (Haxe Eval interpreter)
+--interp
+
+# Enable compilation for the unit test library
+-lib utest
+
+# Optional: Add other libraries if your tests or application depend on them
+# -lib mylibrary
+
+# Optional: Enable debugging information for better stack traces
+# -debug
+
+# Optional: Define conditional compilation flags if needed for tests
+# -D test_mode
+
+# Suppress minor library deprecation warnings
+-w -WDeprecatedEnumAbstract
