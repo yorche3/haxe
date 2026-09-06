@@ -106,4 +106,6 @@ haxe build.hxml
 
 ---
 
+*[← Volver a Core](../README.md)*
+
 *🌐 [github.com/yorche3/programming_languages](https://github.com/yorche3/programming_languages) · [GitHub Pages](https://yorche3.github.io/programming_languages/)*
