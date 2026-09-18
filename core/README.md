@@ -9,6 +9,7 @@ Implementaciones de los módulos **Core** del roadmap en **Haxe**.
 | Módulo | Descripción |
 | ------ | ----------- |
 | [`foundations/`](foundations/) | **Fase 0 — Fundamentos**: `helloworld`, `hellouser`, `unit_test/calculator`, `numbers` |
+| [`algorithms/`](algorithms/) | **Fase 1 — Algoritmos Puros**: `naive_sort` |
 
 ---
 
