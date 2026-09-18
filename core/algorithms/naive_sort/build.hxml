@@ -1,0 +1,14 @@
+-main RunTests
+
+# Specify the source directories for application and test code
+-cp .
+
+# Target platform for running tests (Haxe Eval interpreter)
+--interp
+
+# Enable compilation for the unit test library
+-lib utest
+
+# Suppress minor library deprecation warnings
+-w -WDeprecatedEnumAbstract
+
