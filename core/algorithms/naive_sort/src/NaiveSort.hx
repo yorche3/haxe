@@ -1,6 +1,11 @@
 package src;
 
+// naive_sort — ordenamientos elementales O(n^2) sobre un Array<Int> (in-place).
+// Especificación: 05_Naive_Sort. Contrato: Array<Int> -> Array<Int>; null si la entrada es null.
 class NaiveSort {
+    // selectionSort: busca el mínimo del tramo no ordenado y lo intercambia con el inicio
+    // input: Array<Int> (se ordena in-place)
+    // output: el mismo array ordenado; null si la entrada es null
     public static function selectionSort(arr:Array<Int>):Array<Int> {
         if (arr == null) return null;
         var n = arr.length;
@@ -21,6 +26,9 @@ class NaiveSort {
         return arr;
     }
 
+    // bubbleSort: compara e intercambia adyacentes, con bandera de salida temprana
+    // input: Array<Int> (se ordena in-place)
+    // output: el mismo array ordenado; null si la entrada es null
     public static function bubbleSort(arr:Array<Int>):Array<Int> {
         if (arr == null) return null;
         var n = arr.length;
@@ -40,6 +48,9 @@ class NaiveSort {
         return arr;
     }
 
+    // insertionSort: desplaza cada clave y la inserta en su posición del tramo ordenado
+    // input: Array<Int> (se ordena in-place)
+    // output: el mismo array ordenado; null si la entrada es null
     public static function insertionSort(arr:Array<Int>):Array<Int> {
         if (arr == null) return null;
         var n = arr.length;
