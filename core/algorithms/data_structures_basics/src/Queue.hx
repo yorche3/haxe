@@ -23,27 +23,45 @@ final class Queue {
     /** Front value, or -1 when the queue is empty (peek). */
     public var frontValue(get, never):Int;
     inline function get_frontValue():Int {
-        return -1;
+        return this.front != null ? this.front.value : -1;
     }
 
     /** True when the queue contains no nodes (is_empty). */
     public var isEmpty(get, never):Bool;
     inline function get_isEmpty():Bool {
-        return false;
+        return this.front == null;
     }
 
     /** Number of nodes currently stored (size). */
     public var size(get, never):Int;
     inline function get_size():Int {
-        return 0;
+        return this.count;
     }
 
     /** Adds value at the rear of the queue (enqueue). */
     public function enqueue(value:Int):Void {
+        var newNode = new Node(value);
+        if (this.rear != null) {
+            this.rear.next = newNode;
+        }
+        this.rear = newNode;
+        if (this.front == null) {
+            this.front = newNode;
+        }
+        this.count++;
     }
 
     /** Removes and returns the front value, or -1 when empty (dequeue). */
     public function dequeue():Int {
-        return -1;
+        if (this.front == null) {
+            return -1;
+        }
+        var value = this.front.value;
+        this.front = this.front.next;
+        if (this.front == null) {
+            this.rear = null;
+        }
+        this.count--;
+        return value;
     }
 }

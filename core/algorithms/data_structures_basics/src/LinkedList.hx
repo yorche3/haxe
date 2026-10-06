@@ -24,31 +24,65 @@ final class LinkedList {
     /** Head value, or -1 when the list is empty (get_head). */
     public var headValue(get, never):Int;
     inline function get_headValue():Int {
-        return -1;
+        return this.head != null ? this.head.value : -1;
     }
 
     /** True when the list contains no nodes (is_empty). */
     public var isEmpty(get, never):Bool;
     inline function get_isEmpty():Bool {
-        return false;
+        return this.head == null;
     }
 
     /** Number of nodes currently stored (size). */
     public var size(get, never):Int;
     inline function get_size():Int {
-        return 0;
+        return this.count;
     }
 
     /** Inserts value at the head (insert_head). */
     public function insertHead(value:Int):Void {
+        var newNode = new Node(value);
+        newNode.next = this.head;
+        this.head = newNode;
+        if (this.tail == null) {
+            this.tail = newNode;
+        }
+        this.count++;
     }
 
     /** Inserts value at the tail (insert_tail). */
     public function insertTail(value:Int):Void {
+        var newNode = new Node(value);
+        if (this.tail != null) {
+            this.tail.next = newNode;
+        }
+        this.tail = newNode;
+        if (this.head == null) {
+            this.head = newNode;
+        }
+        this.count++;
     }
 
     /** Removes the first occurrence of value (delete); false when it is absent. */
     public function delete(value:Int):Bool {
+        var current = this.head;
+        var previous:Null<Node> = null;
+        while (current != null) {
+            if (current.value == value) {
+                if (previous == null) {
+                    this.head = current.next;
+                } else {
+                    previous.next = current.next;
+                }
+                if (current.next == null) {
+                    this.tail = previous;
+                }
+                this.count--;
+                return true;
+            }
+            previous = current;
+            current = current.next;
+        }
         return false;
     }
 }

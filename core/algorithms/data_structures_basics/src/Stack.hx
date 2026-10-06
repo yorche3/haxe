@@ -21,27 +21,37 @@ final class Stack {
     /** Top value, or -1 when the stack is empty (peek). */
     public var topValue(get, never):Int;
     inline function get_topValue():Int {
-        return -1;
+        return this.top != null ? this.top.value : -1;
     }
 
     /** True when the stack contains no nodes (is_empty). */
     public var isEmpty(get, never):Bool;
     inline function get_isEmpty():Bool {
-        return false;
+        return this.top == null;
     }
 
     /** Number of nodes currently stored (size). */
     public var size(get, never):Int;
     inline function get_size():Int {
-        return 0;
+        return this.count;
     }
 
     /** Pushes value on top of the stack (push). */
     public function push(value:Int):Void {
+        var newNode = new Node(value);
+        newNode.next = this.top;
+        this.top = newNode;
+        this.count++;
     }
 
     /** Removes and returns the top value, or -1 when empty (pop). */
     public function pop():Int {
-        return -1;
+        if (this.top == null) {
+            return -1;
+        }
+        var value = this.top.value;
+        this.top = this.top.next;
+        this.count--;
+        return value;
     }
 }
