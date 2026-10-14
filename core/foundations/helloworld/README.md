@@ -97,14 +97,14 @@ Hello, World! from Haxe!
 
 ## 📝 Notas de implementación / Implementation Notes
 
-**ES:** Haxe es un lenguaje multi-objetivo: el mismo código fuente puede compilarse a JavaScript, C++, C#, Java, Python, JVM, HL, etc. El punto de entrada de un programa es una clase con un método `static public function main()` (el nombre del archivo debe coincidir con el nombre de la clase). La salida por consola se hace con `haxe.Log.trace`, disponible en todos los objetivos.
+**ES:** Haxe es un lenguaje multi-objetivo: el mismo código fuente puede compilarse a JavaScript, C++, C#, Java, Python, JVM, HL, etc. El punto de entrada de un programa es una clase con un método `static public function main()` (el nombre del archivo debe coincidir con el nombre de la clase). En los objetivos `sys` —el intérprete (`--run`, `--interp`) y los nativos— la salida por consola se hace con `Sys.println`, que escribe en la salida estándar; `haxe.Log.trace` es la utilidad de **depuración** y su destino depende del objetivo.
 
-**EN:** Haxe is a multi-target language: the same source code can be compiled to JavaScript, C++, C#, Java, Python, JVM, HL, etc. A program's entry point is a class with a `static public function main()` method (the file name must match the class name). Console output is done with `haxe.Log.trace`, available on all targets.
+**EN:** Haxe is a multi-target language: the same source code can be compiled to JavaScript, C++, C#, Java, Python, JVM, HL, etc. A program's entry point is a class with a `static public function main()` method (the file name must match the class name). On `sys` targets —the interpreter (`--run`, `--interp`) and the native ones— console output is done with `Sys.println`, which writes to standard output; `haxe.Log.trace` is the **debug** facility and its destination depends on the target.
 
 ```haxe
 class HelloWorld {
     static public function main() {
-        haxe.Log.trace("Hello, World! from Haxe!", null);
+        Sys.println("Hello, World! from Haxe!");
     }
 }
 ```
@@ -113,7 +113,7 @@ class HelloWorld {
 |----------|-----------|
 | `class HelloWorld` | Clase principal; el archivo debe llamarse `HelloWorld.hx`. |
 | `static public function main()` | Punto de entrada del programa. |
-| `haxe.Log.trace(...)` | Imprime a la salida estándar en todos los objetivos. |
+| `Sys.println(...)` | Escribe la línea en la **salida estándar**; es la forma idiomática de un programa de consola en los objetivos `sys`. |
 
 ---
 
