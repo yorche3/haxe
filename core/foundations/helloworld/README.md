@@ -22,7 +22,7 @@ haxe/
             └── HelloWorld.hx
 ```
 
-No se requieren directorios adicionales de compilación, pruebas ni archivos de proyecto. El archivo `.hx` es autocontenido y puede ejecutarse directamente con el intérprete de Haxe o compilarse a cualquier objetivo.
+No se requieren directorios adicionales de compilación, pruebas ni archivos de proyecto. El archivo `.hx` es autocontenido y se ejecuta directamente con el intérprete de Haxe; compilarlo a otros objetivos depende de que su toolchain esté instalada.
 
 ---
 
@@ -48,11 +48,11 @@ No se requieren directorios adicionales de compilación, pruebas ni archivos de 
 
 ## 📄 Archivos de configuración clave / Key Configuration Files
 
-No se requieren archivos de configuración de build. Haxe compila directamente desde línea de comandos con la bandera `--main` (módulo de entrada) más el objetivo deseado (`--interp`, `--js`, `--cpp`, `--cs`, `--java`, `--python`, etc.).
+No se requieren archivos de configuración de build. Haxe compila directamente desde línea de comandos con la bandera `--main` (módulo de entrada) más el objetivo deseado (`--interp`, `--cpp`, `--java`…). En este módulo la salida se hace con `Sys.println`, que solo existe en los objetivos `sys`: el camino verificado es el intérprete.
 
 Opcionalmente se puede usar un archivo `.hxml` para guardar los argumentos de compilación, pero para un único archivo no es necesario.
 
-El `.gitignore` de la raíz del lenguaje ya cubre artefactos generados:
+El `.gitignore` del módulo cubre los artefactos de compilación (`/bin/`) y el de la raíz del lenguaje cubre las cachés de `haxelib`:
 
 ```gitignore
 .haxelib/
@@ -77,15 +77,11 @@ Equivalente abreviado:
 haxe -cp . --run HelloWorld
 ```
 
-### Compilar a un objetivo nativo / Compile to a native target (opcional)
+### Objetivos adicionales / Additional targets
 
-```bash
-# JavaScript
-haxe --main HelloWorld --js hello.js
+**ES:** `Sys.println` solo existe en los objetivos `sys`. El objetivo **JavaScript no lo admite** (`Accessing this field requires a system platform`) y los nativos necesitan su toolchain: el de C++ exige la librería `hxcpp` (`Error: Library hxcpp is not installed` en el entorno de verificación). Por eso aquí solo se documentan comandos con salida comprobada: el intérprete.
 
-# C++ (requiere toolchain de C++)
-haxe --main HelloWorld --cpp bin/
-```
+**EN:** `Sys.println` only exists on `sys` targets. The **JavaScript target does not support it** (`Accessing this field requires a system platform`) and the native ones need their toolchain: the C++ target requires the `hxcpp` library (`Error: Library hxcpp is not installed` in the verification environment). That is why only commands with checked output are documented here: the interpreter.
 
 ### Salida esperada / Expected output
 
