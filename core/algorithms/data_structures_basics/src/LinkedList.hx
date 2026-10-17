@@ -3,9 +3,9 @@ package src;
 /**
  * Singly linked list built from scratch over Node.
  *
- * Contract stub (step 4b): the algorithm is written in step 5, so every body
- * stays at its failure indicator - -1 for numbers, false for flags and 0 for
- * counters -, and no `null` is used outside the Node links.
+ * Contract: every body is implemented; the failure indicator is -1 for numbers,
+ * false for flags and 0 for counters, and no `null` is used outside the Node
+ * links.
  *
  * The default constructor yields an empty list: `new LinkedList()` is the
  * contract's `init`.
