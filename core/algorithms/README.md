@@ -12,6 +12,7 @@ Los módulos de esta fase trabajan sobre `Array<Int>`, que en Haxe **es mutable*
 |--------|---------------|---------|:-----:|:------:|
 | [`naive_sort/`](naive_sort/) | [05_Naive_Sort](https://yorche3.github.io/programming_languages/core/algorithms/05_Naive_Sort/) | `haxe build.hxml` + utest | 3 | ✅ |
 | [`data_structures_basics/`](data_structures_basics/) | [06_Data_Structures_Basics](https://yorche3.github.io/programming_languages/core/algorithms/06_Data_Structures_Basics/) | `haxe build.hxml` + utest (`LinkedList`, `Stack`, `Queue`) | 15 | ✅ |
+| [`data_structures_advanced/`](data_structures_advanced/) | [07_Data_Structures_Advanced](https://yorche3.github.io/programming_languages/core/algorithms/07_Data_Structures_Advanced/) | `haxe build.hxml` + utest (`BinaryTree`, `Graph`, `TreeNode`) | 23 | ✅ |
 
 ---
 
@@ -19,6 +20,12 @@ Los módulos de esta fase trabajan sobre `Array<Int>`, que en Haxe **es mutable*
 
 ```text
 algorithms/
+├── data_structures_advanced/    # 07_Data_Structures_Advanced
+│   ├── build.hxml
+│   ├── RunTests.hx
+│   ├── src/                     # Node, TreeNode, BinaryTree, Graph
+│   ├── test/                    # DataStructuresAdvancedTest.hx
+│   └── README.md
 ├── data_structures_basics/      # 06_Data_Structures_Basics
 │   ├── build.hxml
 │   ├── RunTests.hx
@@ -67,6 +74,10 @@ haxe build.hxml
 
 # Data Structures Basics Tests
 cd ../data_structures_basics
+haxe build.hxml
+
+# Data Structures Advanced Tests
+cd ../data_structures_advanced
 haxe build.hxml
 ```
 
